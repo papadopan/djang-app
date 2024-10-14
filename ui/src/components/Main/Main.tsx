@@ -12,7 +12,7 @@ export const Main = () => {
           find accurate scholarly information in high energy physics
         </p>
       </>
-      <SearchBar />
+      <SearchBar isPending={false} onFormSubmit={(val) => console.log(val)} />
     </section>
   );
 };

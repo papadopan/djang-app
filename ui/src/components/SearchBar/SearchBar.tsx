@@ -31,7 +31,7 @@ export const SearchBar = ({
     >
       <input
         {...form.register("query")}
-        className="w-full p-2  rounded border border-[#001529]"
+        className="w-full p-2 rounded border border-[#001529]"
         placeholder="Search for articles"
       />
       <button
