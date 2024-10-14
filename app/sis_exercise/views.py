@@ -100,14 +100,7 @@ class ElasticSearchAPIView(APIView):
 
             serializer = self.serializer_class(list(response.hits), many=True)
 
-            openai_summary = generate_summary_text([
-                    {
-                    "abstract":"We show that the large \r\nN\r\nN limit of certain conformal field theories in various dimensions include in their Hilbert space a sector describing supergravity on the product of Anti-deSitter spacetimes, spheres and other compact manifolds. ."
-                    },
-                    {
-                    "abstract":"Randome random random random random random"
-                    }   
-            ])
+            openai_summary = generate_summary_text([hit.abstract for hit in response.hits])
 
             return DRFResponse({"results":serializer.data,"summary":openai_summary}, status=status.HTTP_200_OK)
         except Exception as e:
