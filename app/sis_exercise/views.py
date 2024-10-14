@@ -15,6 +15,9 @@ from rest_framework.views import APIView
 from sis_exercise.exceptions import APIViewError
 from sis_exercise.serializers import SearchQuerySerializer
 
+from api.serializers import LiteratureSerializer
+from api.documents import LiteratureDocument
+
 
 class IndexRedirectView(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
@@ -39,8 +42,8 @@ class ElasticSearchAPIView(APIView):
     Elasticsearch docs: https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html
     """
 
-    serializer_class = None
-    document_class = None
+    serializer_class = LiteratureSerializer
+    document_class = LiteratureDocument
     query_serializer_class = SearchQuerySerializer
 
     @abc.abstractmethod
