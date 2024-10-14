@@ -49,6 +49,7 @@ class ElasticSearchAPIView(APIView):
     @abc.abstractmethod
     def elasticsearch_query_expression(self, query):
         """This method should be overridden and return a Q() expression."""
+        return Q("multi_match", query=query, fields=["title",])
 
     def get(self, request):
         """
@@ -79,7 +80,7 @@ class ElasticSearchAPIView(APIView):
         query_data = search_query_serializer.validated_data
         try:
             # Check if the 'query' parameter is provided and not empty
-            if query_data.get("query"):
+            if query_data.get("query") and query_data["query"].strip():
                 # Build the search query using the user's input
                 search_query = self.elasticsearch_query_expression(query_data["query"])
             else:
