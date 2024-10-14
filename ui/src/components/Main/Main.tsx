@@ -1,8 +1,9 @@
 import { useGetInspireRecords } from "@/services/useGetInspireRecords";
 import { SearchBar } from "../SearchBar/SearchBar";
+import { Articles } from "../Articles/Articles";
 
 export const Main = () => {
-  const { mutate, data, isPending } = useGetInspireRecords();
+  const { mutate, data, isPending, isError, error } = useGetInspireRecords();
   console.log("data", data);
   return (
     <section className="py-6 px-10">
@@ -16,6 +17,12 @@ export const Main = () => {
         </p>
       </>
       <SearchBar isPending={isPending} onFormSubmit={mutate} />
+      <Articles
+        data={data}
+        isPending={isPending}
+        isError={isError}
+        error={error}
+      />
     </section>
   );
 };
