@@ -2,7 +2,7 @@ import requests
 import os
 
 # get the API key from the environment
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+OPENAI_API_KEY = "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"
 
 def generate_summary_text(prompt:str) -> str:
     """This function generates a summary of the given text using OpenAI's GPT-4o model."""
@@ -36,5 +36,5 @@ def generate_summary_text(prompt:str) -> str:
         return summary
 
     except Exception as e:
-        return f"An error occurred while getting response from openai, please make sure the API key is correct and the service is available."
+        return f"An error occurred while getting response from openai, please make sure the API key is correct and the service is available.{e}"
     
