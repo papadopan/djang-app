@@ -13,3 +13,6 @@ ipython
 ipdb
 openai
 requests
+celery==5.3.1
+redis==5.0.0
+django-celery-beat
