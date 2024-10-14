@@ -36,6 +36,8 @@ Example Workflow
 - Frontend is ready to receive your requests
 <img width="1439" alt="image" src="https://github.com/user-attachments/assets/69657f07-fb0b-408c-9b94-2319caa96908">
 <img width="1769" alt="image" src="https://github.com/user-attachments/assets/4ac4e67a-5844-42b0-9abb-315b540231bc">
+<img width="1772" alt="image" src="https://github.com/user-attachments/assets/27530818-e607-4a5c-bd85-8e86de304190">
+
 
 
 ### Notes
