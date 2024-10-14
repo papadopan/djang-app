@@ -22,6 +22,9 @@ bootstrap:
 bash:
 	docker exec -it django_app bash
 
+test:
+	docker exec -it django_app pytest
+
 shell:
 	docker exec -it django_app python manage.py shell
 
