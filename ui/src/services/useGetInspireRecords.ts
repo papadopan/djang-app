@@ -5,7 +5,6 @@ const getInspireData = async (query: string) => {
   const params = new URLSearchParams({
     limit: "10",
     offset: "0",
-    query: "",
   });
 
   // make sure to add query only when it is not empty
