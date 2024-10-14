@@ -1,6 +1,5 @@
 import requests
 import os
-#sk-DteN809CPy-oNtLtQMFW4pb1ztw1Q70pe-ciU5sxm-T3BlbkFJaHjetI8KZFqub8Q_ynxwOlJw85mRzsZaAEnfmD-u0A
 
 # get the API key from the environment
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
