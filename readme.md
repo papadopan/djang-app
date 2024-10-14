@@ -35,6 +35,8 @@ Example Workflow
 ## React Frontend
 - Frontend is ready to receive your requests
 <img width="1439" alt="image" src="https://github.com/user-attachments/assets/69657f07-fb0b-408c-9b94-2319caa96908">
+<img width="1769" alt="image" src="https://github.com/user-attachments/assets/4ac4e67a-5844-42b0-9abb-315b540231bc">
+
 
 ### Notes
 - We do not want to update params such as `limit`, `offset` I provided them hardcoded
