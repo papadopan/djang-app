@@ -18,7 +18,7 @@ services:
     volumes:
       - "./app:/app"
     environment:
-      - OPENAI_API_KEY=sk-ajckfxo0yK_potdZEFZgalO8Gwov1XJ9rJGBArRSYqT3BlbkFJUurgPuc1U161SbQl1PKhgS4FPf9TmsP9-UYzkIFasA
+      - OPENAI_API_KEY=FETCH_FROM_THE_COMMENT_IN_THE_FILE
     depends_on:
       - db
       - elasticsearch

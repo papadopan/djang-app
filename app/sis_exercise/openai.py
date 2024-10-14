@@ -1,8 +1,9 @@
 import requests
 import os
+#sk-DteN809CPy-oNtLtQMFW4pb1ztw1Q70pe-ciU5sxm-T3BlbkFJaHjetI8KZFqub8Q_ynxwOlJw85mRzsZaAEnfmD-u0A
 
 # get the API key from the environment
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 
 def generate_summary_text(prompt:str) -> str:
     """This function generates a summary of the given text using OpenAI's GPT-4o model."""
