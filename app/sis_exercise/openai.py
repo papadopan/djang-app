@@ -13,9 +13,13 @@ def generate_summary_text(prompt):
     data = {
         "model":"gpt-4o",
         "messages":[
-            {"role":"user","content": f"Summarize the following list of abstracts to a verey detailed paragraph: {prompt}"}
+            {"role":"user","content": f"Summarize the following list of abstracts to a very detailed paragraph: {prompt}"}
         ]
     }
+
+    # if the list of abstracts is empty, return a default message without calling the API
+    if not prompt or len(prompt) == 0:
+        return "No abstracts provided to summarize."
 
     try:
         response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=data, verify=False)
@@ -24,7 +28,8 @@ def generate_summary_text(prompt):
         response.raise_for_status()
 
         # extract the summary from the response
-        summary = response.json().get("choices",[{}])[0].get("message", {}).get("content", "")
+        # return a default message in case there is something wrong with the response
+        summary = response.json().get("choices",[{}])[0].get("message", {}).get("content", "No summary was provided for your request, please try again")
 
         return summary
 
