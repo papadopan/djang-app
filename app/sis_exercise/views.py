@@ -51,7 +51,7 @@ class ElasticSearchAPIView(APIView):
     @abc.abstractmethod
     def elasticsearch_query_expression(self, query):
         """This method should be overridden and return a Q() expression."""
-        return Q("multi_match", query=query, fields=["title",])
+        return Q("multi_match", query=query, fields=["title", "abstract"])
 
     def get(self, request):
         """
