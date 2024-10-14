@@ -8,6 +8,7 @@ You are tasked with building a simple web application that allows users to searc
 - in the root folder run commands
   - `make up`
   - `make bootstrap`
+  - in order openai to return proper results the key will be provided in the submission mail
  
 - navigate to ui folder
   - run `npm i`
