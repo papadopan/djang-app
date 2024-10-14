@@ -5,7 +5,7 @@ import { Content } from "@/common/Content";
 
 export const Main = () => {
   const { mutate, data, isPending, isError, error } = useGetInspireRecords();
-  console.log("data", data);
+
   return (
     <section className="py-6 px-10">
       <Content>
