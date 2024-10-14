@@ -108,7 +108,7 @@ export const Articles = ({
       )}
       <p className="text-sm font-bold">Results: {data.results.length}</p>
       {data.results.map((result, index) => (
-        <Card>
+        <Card key={index + result.abstract + result.title}>
           <CardHeader>
             <div className="flex flex-row justify-between">
               <CardTitle className="text-md">{result.title}</CardTitle>
