@@ -1,4 +1,4 @@
-import { ApiDataResponse } from "@/services/types";
+import { ApiDataResponse } from "../../services/types";
 import {
   Card,
   CardContent,
@@ -14,7 +14,7 @@ export const Articles = ({
   isError,
   error,
 }: {
-  data: ApiDataResponse;
+  data: ApiDataResponse | undefined;
   isPending: boolean;
   isError: boolean;
   error: Error | null;
