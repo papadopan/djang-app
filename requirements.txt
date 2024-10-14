@@ -11,3 +11,5 @@ Markdown==3.5.1
 # Local development
 ipython
 ipdb
+openai
+requests
