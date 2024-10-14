@@ -1,6 +1,9 @@
+import { useGetInspireRecords } from "@/services/useGetInspireRecords";
 import { SearchBar } from "../SearchBar/SearchBar";
 
 export const Main = () => {
+  const { mutate, data, isPending } = useGetInspireRecords();
+  console.log("data", data);
   return (
     <section className="py-6 px-10">
       <>
@@ -12,7 +15,7 @@ export const Main = () => {
           find accurate scholarly information in high energy physics
         </p>
       </>
-      <SearchBar isPending={false} onFormSubmit={(val) => console.log(val)} />
+      <SearchBar isPending={isPending} onFormSubmit={mutate} />
     </section>
   );
 };
