@@ -13,7 +13,7 @@ def generate_summary_text(prompt):
     data = {
         "model":"gpt-4o",
         "messages":[
-            {"role":"user","content": f"Summarize the following text: {prompt}"}
+            {"role":"user","content": f"Summarize the following list of abstracts to a verey detailed paragraph: {prompt}"}
         ]
     }
 
