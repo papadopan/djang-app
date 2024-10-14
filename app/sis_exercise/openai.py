@@ -36,5 +36,5 @@ def generate_summary_text(prompt:str) -> str:
         return summary
 
     except Exception as e:
-        return f"An error occurred while getting response from openai: {e}"
+        return f"An error occurred while getting response from openai, please make sure the API key is correct and the service is available."
     
