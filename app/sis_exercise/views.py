@@ -74,9 +74,9 @@ class ElasticSearchAPIView(APIView):
         """
         search_query_serializer = self.query_serializer_class(data=request.GET.dict())
         if not search_query_serializer.is_valid():
-            return DRFResponse(
-                f"Validation error: {search_query_serializer.errors}",
-                status=status.HTTP_400_BAD_REQUEST
+            raise APIViewError(
+                message=f"{search_query_serializer.errors}",
+                status_code=status.HTTP_400_BAD_REQUEST
             )
 
         query_data = search_query_serializer.validated_data
@@ -104,6 +104,10 @@ class ElasticSearchAPIView(APIView):
             openai_summary = generate_summary_text(concatetated_abstracts)
 
             return DRFResponse({"results":serializer.data,"summary":openai_summary}, status=status.HTTP_200_OK)
+        
+        except APIViewError as e:
+            return Response(e.detail, status=e.status_code)
+        
         except Exception as e:
             return DRFResponse(
                 f"Error during fetching data: {str(e)}",
