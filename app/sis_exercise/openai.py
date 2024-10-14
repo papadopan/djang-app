@@ -4,7 +4,7 @@ import os
 # get the API key from the environment
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
-def generate_summary_text(prompt):
+def generate_summary_text(prompt:str) -> str:
     """This function generates a summary of the given text using OpenAI's GPT-4o model."""
 
     headers = {
@@ -15,12 +15,12 @@ def generate_summary_text(prompt):
     data = {
         "model":"gpt-4o",
         "messages":[
-            {"role":"user","content": f"Summarize the following list of abstracts to a very detailed paragraph: {prompt}"}
+            {"role":"user","content": f"Summarize the following paragraphs: {prompt}"}
         ]
     }
 
     # if the list of abstracts is empty, return a default message without calling the API
-    if not prompt or len(prompt) == 0:
+    if not prompt or len(prompt.strip()) == 0:  
         return "No abstracts provided to summarize."
 
     try:

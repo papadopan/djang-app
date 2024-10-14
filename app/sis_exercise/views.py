@@ -100,7 +100,8 @@ class ElasticSearchAPIView(APIView):
 
             serializer = self.serializer_class(list(response.hits), many=True)
 
-            openai_summary = generate_summary_text([hit.abstract for hit in response.hits])
+            concatetated_abstracts = "\n\n".join([hit.abstract for hit in response.hits])
+            openai_summary = generate_summary_text(concatetated_abstracts)
 
             return DRFResponse({"results":serializer.data,"summary":openai_summary}, status=status.HTTP_200_OK)
         except Exception as e:
