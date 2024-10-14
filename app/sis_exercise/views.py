@@ -98,12 +98,18 @@ class ElasticSearchAPIView(APIView):
 
             response = search.execute()
 
-            print(
-                generate_summary_text("We show that the large \r\nN\r\nN limit of certain conformal field theories in various dimensions include in their Hilbert space a sector describing supergravity on the product of Anti-deSitter spacetimes, spheres and other compact manifolds. This is shown by taking some branes in the full M/string theory and then taking a low energy limit where the field theory on the brane decouples from the bulk. We observe that, in this limit, we can still trust the near horizon geometry for large \r\nN\r\nN. The enhanced supersymmetries of the near horizon geometry correspond to the extra supersymmetry generators present in the superconformal group (as opposed to just the super-Poincare group). The 't Hooft limit of 4-d \r\nN\r\n=\r\n4\r\nN=4 super-Yang-Mills at the conformal point is shown to contain strings: they are IIB strings. We conjecture that compactifications of M/string theory on various Anti-deSitter spacetimes are dual to various conformal field theories. This leads to a new proposal for a definition of M-theory which could be extended to include five non-compact dimensions.")
-            )
-
             serializer = self.serializer_class(list(response.hits), many=True)
-            return DRFResponse(serializer.data, status=status.HTTP_200_OK)
+
+            openai_summary = generate_summary_text([
+                    {
+                    "abstract":"We show that the large \r\nN\r\nN limit of certain conformal field theories in various dimensions include in their Hilbert space a sector describing supergravity on the product of Anti-deSitter spacetimes, spheres and other compact manifolds. ."
+                    },
+                    {
+                    "abstract":"Randome random random random random random"
+                    }   
+            ])
+
+            return DRFResponse({"results":serializer.data,"summary":openai_summary}, status=status.HTTP_200_OK)
         except Exception as e:
             return DRFResponse(
                 f"Error during fetching data: {str(e)}",
